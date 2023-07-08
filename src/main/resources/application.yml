@@ -1,0 +1,12 @@
+spring:
+  cache:
+    cache-names:
+      - rate-limit-buckets
+    caffeine:
+      spec: maximumSize=100,expireAfterWrite=1m
+
+bucket4j:
+  enabled: true
+  filters:
+    - cache-name: rate-limit-buckets
+      url: /api/v1/products/**
